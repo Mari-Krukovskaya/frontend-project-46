@@ -19,8 +19,9 @@ const compare = (data1, data2) => {
     return [` - ${key}: ${data1[key]}`,
 ` + ${key}: ${data2[key]}`];
   });
-  console.log(`{\n ${result.flat().join('\n ')}\n}`);
-  return `{\n ${result.flat().join('\n ')}\n}`;
+  const out = ['{', ...result, '}'].flat().join('\n ');
+  console.log(out);
+  return `${out}`
 };
 
 const getAbsolutePath = (filepath) => path.resolve(cwd(), filepath);
@@ -31,6 +32,6 @@ const data2 = readFileSync(getAbsolutePath(filepath2), 'utf-8');
 
   const dataParse1 = JSON.parse(data1);
   const dataParse2 = JSON.parse(data2);
-   console.log(compare(dataParse1, dataParse2));
+  //console.log(compare(dataParse1, dataParse2));
   return compare(dataParse1, dataParse2);
 }
