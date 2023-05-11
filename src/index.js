@@ -4,7 +4,7 @@ import { cwd } from 'node:process';
 import parseData from './parsers.js';
 import compare from './genDiff.js';
 
-const getAbsolutePath = (filepath) => path.resolve(cwd(), filepath);
+const getAbsolutePath = (filepath) => path.resolve(cwd(), '__fixtures__', filepath);
 
 export default (filepath1, filepath2) => {
   const data1 = readFileSync(getAbsolutePath(filepath1), 'utf-8');
