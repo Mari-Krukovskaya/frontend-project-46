@@ -17,12 +17,12 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 // ])('test gendiff')
 
 
-test('check file.json', ()=> {
+test('check file.json', () => {
 const expected = readFile('file_result.txt');
 const actual = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'));
 expect(actual).toBe(expected);
 });
-test('check file.yml', () =>{
+test('check file.yml', () => {
 const expected = readFile('file_result.txt');
 const actual = genDiff(getFixturePath('file1.yml'), getFixturePath('file2.uml'));
 expect(actual).toBe(expected);
