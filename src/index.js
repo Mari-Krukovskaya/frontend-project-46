@@ -1,17 +1,20 @@
-import { readFileSync } from 'fs';
+import fs from 'fs';
 import path from 'path';
-import { cwd } from 'node:process';
 import parseData from './parsers.js';
 import compare from './genDiff.js';
 
-const getAbsolutePath = (filepath) => path.resolve(cwd(), filepath);
+const getData = (filepath) => path.extname(filepath).slice(1);
+
+const getObject = (filepath) => {
+  const absolutePath = path.resolve(process.cwd(), filepath);
+  const readFile = fs.readFileSync(absolutePath, 'utf-8');
+  const typeFile = getData(absolutePath);
+  return parseData(readFile, typeFile);
+};
 
 export default (filepath1, filepath2) => {
-  const data1 = readFileSync(getAbsolutePath(filepath1), 'utf-8');
-  const data2 = readFileSync(getAbsolutePath(filepath2), 'utf-8');
-
-  const dataParse1 = JSON.parse(data1);
-  const dataParse2 = JSON.parse(data2);
-  //console.log(compare(dataParse1, dataParse2));
-  return compare(dataParse1, dataParse2);
+  const data1 = getObject(filepath1);
+  const data2 = getObject(filepath2);
+  
+  return compare(data1, data2);
 }
