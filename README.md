@@ -17,6 +17,10 @@
 
 - cоздать локальную связь(команда npm link, возможно запустить через sudo)
 ```
-## Usage
+### Usage
 
 [![ascciicast](https://asciinema.org/a/9XsuXfBWIZFW8z1gavywii5ps.svg)](https://asciinema.org/a/9XsuXfBWIZFW8z1gavywii5ps)
+
+### Comparison of flat files (JSON)
+
+[![ascciicast](https://asciinema.org/a/6yDmnWsHlz4a8NbuKk8oUCOZt.svg)](https://asciinema.org/a/6yDmnWsHlz4a8NbuKk8oUCOZt)

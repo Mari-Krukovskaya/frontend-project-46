@@ -17,7 +17,6 @@ const compare = (data1, data2) => {
   ` + ${key}: ${data2[key]}`];
     });
     const out = ['{', ...result, '}'].flat().join('\n ');
-    console.log(out);
     return `${out}`
   };
   export default compare;
