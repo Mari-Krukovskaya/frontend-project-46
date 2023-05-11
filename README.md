@@ -19,4 +19,4 @@
 ```
 ## Usage
 
-[![ascciicast]( https://asciinema.org/a/9XsuXfBWIZFW8z1gavywii5ps.svg)] (https://asciinema.org/a/9XsuXfBWIZFW8z1gavywii5ps)
+[![ascciicast](https://asciinema.org/a/9XsuXfBWIZFW8z1gavywii5ps.svg)](https://asciinema.org/a/9XsuXfBWIZFW8z1gavywii5ps)
