@@ -1,4 +1,4 @@
-name:  jest Gendiff
+name: jest-test
 
 on:
   - push
@@ -26,7 +26,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: make install
-      - run: make lint
+      - name: Gendiff jest
+      - run: 
+          make test
+      - name: Test & publish code coverage
          uses: paambaati/codeclimate-action@v3.0.0
          env:
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
