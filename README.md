@@ -28,3 +28,7 @@
 ### Comparison of flat files (YML)
 
 [![ascciicast](https://asciinema.org/a/PrjDEoaAyL2wDr7LCNGKcOj5Q.svg)](https://asciinema.org/a/PrjDEoaAyL2wDr7LCNGKcOj5Q)
+
+### Nested structures(YML && JSON)
+
+[![ascciicast](https://asciinema.org/a/skvPMFVBkAuk0Q0A0OtIGKQ5w.svg)](https://asciinema.org/a/skvPMFVBkAuk0Q0A0OtIGKQ5w)
