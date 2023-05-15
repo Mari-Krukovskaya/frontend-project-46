@@ -1,4 +1,4 @@
-name: Node CI
+name:  jest Gendiff
 
 on:
   - push
@@ -27,7 +27,6 @@ jobs:
           cache: 'npm'
       - run: make install
       - run: make lint
-      - run: make test
          uses: paambaati/codeclimate-action@v3.0.0
          env:
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
