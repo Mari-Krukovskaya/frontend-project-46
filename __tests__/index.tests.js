@@ -1,6 +1,6 @@
-import { test, expect } from "@jest/globals";
+import { test, expect } from '@jest/globals';
 import { fileURLToPath } from 'url';
-import path, { dirname } from "node:path";
+import path, { dirname } from 'node:path';
 import fs from 'fs';
 import genDiff from '../src/index.js';
 
@@ -18,9 +18,8 @@ const fileYml2 = getFixturePath('file2.yml');
 const expectedYml = readFile('file.yml_result.txt').trim();
 
 test('Comparison of flat files Json and Yml', () => {
-    const actual1 = genDiff(fileJson1, fileJson2);
-    const actual2 = genDiff(fileYml1, fileYml2);
-    expect(actual1).toEqual(expectedJson);
-    expect(actual2).toEqual(expectedYml);
+  const actual1 = genDiff(fileJson1, fileJson2);
+  const actual2 = genDiff(fileYml1, fileYml2);
+  expect(actual1).toBe(expectedJson);
+  expect(actual2).toBe(expectedYml);
 });
-

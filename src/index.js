@@ -1,20 +1,22 @@
-import fs from 'fs';
+import { readFileSync } from 'fs';
 import path from 'path';
 import parseData from './parsers.js';
 import compare from './genDiff.js';
+import formatStylish from './formatters/stylish.js';
 
-const getData = (filepath) => path.extname(filepath).slice(1);
+const getFormat = (filepath) => path.extname(filepath).slice(1);
 
-const getObject = (filepath) => {
-  const absolutePath = path.resolve(process.cwd(), filepath);
-  const readFile = fs.readFileSync(absolutePath, 'utf-8');
-  const typeFile = getData(absolutePath);
-  return parseData(readFile, typeFile);
+const getAbsolutePath = (filepath) => path.resolve(process.cwd(), filepath);
+
+const readFile = (filepath) => readFileSync(getAbsolutePath(filepath, 'utf-8'));
+
+const genDiff = (filepath1, filepath2, nameFormat = 'stylish') => {
+  const data1 = readFile(filepath1);
+  const data2 = readFile(filepath2);
+  const file1 = parseData(data1, getFormat(filepath1));
+  const file2 = parseData(data2, getFormat(filepath2));
+  const diff = compare(file1, file2);
+  return formatStylish(diff, nameFormat);
 };
 
-export default (filepath1, filepath2) => {
-  const data1 = getObject(filepath1);
-  const data2 = getObject(filepath2);
-  
-  return compare(data1, data2);
-}
+export default genDiff;
