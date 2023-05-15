@@ -17,25 +17,24 @@ const stringify = (data, depth) => {
 
 const formatStylish = (tree) => {
   const iter = (node, depth) => {
-    const result = node.flatMap((data) => {
+    const result = node.map((data) => {
       switch (data.type) {
-        case 'nested':
-          return `${getIndent(depth)}   ${data.key}: ${iter(data.children, depth + 1)}`;
-        case 'added':
-          return `${getIndent(depth)} + ${data.key}: ${stringify(data.value, depth + 1)}`;
-        case 'deleted':
-          return `${getIndent(depth)} - ${data.key}: ${stringify(data.value, depth + 1)}`;
+        case 'unchanged':
+          return `${getIndent(depth)}   ${data.key}: ${stringify(data.value, depth + 1)}`;
         case 'changed':
           return [
             `${getIndent(depth)} - ${data.key}: ${stringify(data.value1, depth + 1)}\n${getIndent(depth)} + ${data.key}: ${stringify(data.value2, depth + 1)}`,
           ];
-        case 'unchanged':
-          return `${getIndent(depth)}   ${data.key}: ${stringify(data.value, depth + 1)}`;
+        case 'added':
+          return `${getIndent(depth)} + ${data.key}: ${stringify(data.value, depth + 1)}`;
+        case 'deleted':
+          return `${getIndent(depth)} - ${data.key}: ${stringify(data.value, depth + 1)}`;
+      case 'nested':
+          return `${getIndent(depth)}   ${data.key}: ${iter(data.children, depth + 1)}`;
         default:
           throw new Error(`Uknown type ${data.type}`);
       }
     });
-
     return ['{', ...result, `${getCloseBracket(depth)}}`].join('\n');
   };
 

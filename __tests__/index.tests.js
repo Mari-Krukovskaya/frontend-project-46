@@ -18,16 +18,17 @@ const fileYml2 = getFixturePath('file2.yml');
 const expectedStylishYml = readFile('file.StylishYml_result.txt').trim();
 
 
-test.each([
-{ file1: fileJson1, file2: fileJson2, format: 'stylish', expected: expectedStylishJson },
-{ file1: fileYml1, file2: fileYml2, format: 'stylish', expected: expectedStylishYml},
-])('difference calculator JSON && YML file in different formats', ({file1, file2, format, expected}) => {
-  expect(genDiff(file1, file2, format)).toBe(expected);
-});
-
-// test('gendiff', () => {
-//   const actual1 = genDiff(fileJson1, fileJson2);
-//   const actual2 = genDiff(fileYml1, fileYml2);
-//   expect(actual1).toEqual(expectedStylishJson);
-//   expect(actual2).toEqual(expectedStylishYml);
+// test.each([
+// { file1: fileJson1, file2: fileJson2, format: 'stylish', expected: expectedStylishJson },
+// { file1: fileYml1, file2: fileYml2, format: 'stylish', expected: expectedStylishYml},
+// ])('difference calculator JSON && YML file in different formats', ({file1, file2, format, expected}) => {
+//   expect(genDiff(file1, file2, format)).toBe(expected);
 // });
+
+test('gendiff', () => {
+  const actual1 = genDiff(fileJson1, fileJson2);
+  const actual2 = genDiff(fileYml1, fileYml2);
+  expect(actual1).toEqual(expectedStylishJson);
+  expect(actual2).toEqual(expectedStylishYml);
+    
+});
