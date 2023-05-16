@@ -13,7 +13,6 @@ const getValue = (value) => {
 
 const formatPlain = (tree) => {
  const iter = (node, parent) => node
- .filter((data) => data.type !== 'unchanged')
  .flatMap((data) => {
  const path = parent ? `${parent}.${data.key}`: data.key;
    switch (data.type) {
@@ -25,12 +24,14 @@ const formatPlain = (tree) => {
      return `Property '${path}' was updated. From ${getValue(data.value1)} to ${getValue(data.value2)}`
     case 'nested':
      return `${iter(data.children, `${path}`)}`;
+     case 'unchanged':
+     return [];
    default:
      throw new Error(`Uknown type ${data.type}`);
    }
     }).join('\n');
   
-  return iter(tree, 0);
+  return iter(tree);
 };
 
 export default formatPlain;

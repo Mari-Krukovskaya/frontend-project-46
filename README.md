@@ -6,7 +6,7 @@
 ### ### Project description:
 Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
 
-## Requirements
+### Requirements
  Node.js v13.2.0
 
  ### Install:
@@ -32,3 +32,7 @@
 ### Nested structures(YML && JSON)
 
 [![ascciicast](https://asciinema.org/a/skvPMFVBkAuk0Q0A0OtIGKQ5w.svg)](https://asciinema.org/a/skvPMFVBkAuk0Q0A0OtIGKQ5w)
+
+### flat plain format(YML && JSON)
+
+[![ascciicast](https://asciinema.org/a/w8TM2bNXQGS67etLOSiKw4IsO.svg)](https://asciinema.org/a/w8TM2bNXQGS67etLOSiKw4IsO)
