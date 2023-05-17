@@ -3,7 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/2839508087676ed3a3f7/maintainability)](https://codeclimate.com/github/Mari-Krukovskaya/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2839508087676ed3a3f7/test_coverage)](https://codeclimate.com/github/Mari-Krukovskaya/frontend-project-46/test_coverage)
 
-### ### Project description:
+### Project description:
 Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
 
 ### Requirements
@@ -36,3 +36,7 @@
 ### flat plain format(YML && JSON)
 
 [![ascciicast](https://asciinema.org/a/w8TM2bNXQGS67etLOSiKw4IsO.svg)](https://asciinema.org/a/w8TM2bNXQGS67etLOSiKw4IsO)
+
+### file json && yml in Format Json
+
+[![ascciicast](https://asciinema.org/a/vYFGbViVOs176FR05xXyvcklM.svg)](  https://asciinema.org/a/vYFGbViVOs176FR05xXyvcklM)

@@ -2,11 +2,11 @@ import yaml from 'js-yaml';
 
 const parseData = (content, format) => {
   switch (format) {
-    case 'yaml':
     case 'yml':
       return yaml.load(content);
+    case 'json':
     default:
-      throw new Error(`invalid format: '${format}'!`);
+      return JSON.parse(content);
   }
 };
 
