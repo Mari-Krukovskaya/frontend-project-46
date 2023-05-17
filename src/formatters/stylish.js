@@ -11,7 +11,6 @@ const stringify = (data, depth) => {
   }
   const entries = Object.entries(data);
   const lines = entries.map(([key, value]) => `${getIndent(depth + 1)}  ${key}: ${stringify(value, depth + 1)}`);
-  //const out = ['{', ...lines, `${getIndent(depth)} }`].join('\n');
   const out = [`{\n${lines.join('\n')}\n  ${getIndent(depth)}}`];
   return out;
 };
@@ -36,7 +35,6 @@ const formatStylish = (tree) => {
           throw new Error(`Uknown type ${data.type}`);
       }
     });
-     //return ['{', ...result, `${getIndent(depth)} }`].join('\n');
     return result.join('\n');
   };
 
