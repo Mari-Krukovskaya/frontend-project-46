@@ -16,24 +16,16 @@ const fileYml1 = getFixturePath('file1.yml');
 const fileYml2 = getFixturePath('file2.yml');
 const expectedStylish = readFile('file.Stylish_result.txt');
 const expectedPlain = readFile('file.FormatPlain_result.txt');
-// test.each([
-// { file1: fileJson1, file2: fileJson2, format: 'stylish', expected: expectedStylishJson },
-// { file1: fileYml1, file2: fileYml2, format: 'stylish', expected: expectedStylishYml },
-// ])('difference calculator JSON && YML file in different formats', ({ file1, file2, format, expected }) => {
-//   expect(genDiff(file1, file2, format)).toEqual(expected);
-// });
 
-test('format stylish file json && yml',() => {
+test('format stylish file json && yml', () => {
   const actual1 = genDiff(fileJson1, fileJson2);
   const actual2 = genDiff(fileYml1, fileYml2);
   expect(actual1).toEqual(expectedStylish);
-  expect(actual2).toEqual(expectedStylish); 
-  
+  expect(actual2).toEqual(expectedStylish);
 });
-test('format plain file json && yml',() => {
+test('format plain file json && yml', () => {
   const actual3 = genDiff(fileJson1, fileJson2);
   const actual4 = genDiff(fileYml1, fileYml2);
   expect(actual3).toEqual(expectedPlain);
   expect(actual4).toEqual(expectedPlain);
-
-})
+});

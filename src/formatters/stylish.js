@@ -28,8 +28,8 @@ const formatStylish = (tree) => {
         case 'added':
           return `${getIndent(depth)} + ${data.key}: ${stringify(data.value, depth + 1)}`;
         case 'deleted':
-          return `${getIndent(depth)} - .${data.key}: ${stringify(data.value, depth + 1)}`;
-      case 'nested':
+          return `${getIndent(depth)} - ${data.key}: ${stringify(data.value, depth + 1)}`;
+        case 'nested':
           return `${getIndent(depth)}   ${data.key}: ${iter(data.children, depth + 1)}`;
         default:
           throw new Error(`Uknown type ${data.type}`);
