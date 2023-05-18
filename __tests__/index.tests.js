@@ -27,3 +27,10 @@ describe.each(tree)('compare check', (file1, file2, expected, format) => {
     expect(actual).toEqual(expetedResult);
   });
 });
+
+test('empty File', () => {
+  const emptyFile = () => {
+    throw new TypeError();
+  };
+  expect(emptyFile).toThrow(TypeError);
+});

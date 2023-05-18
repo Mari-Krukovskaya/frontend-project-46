@@ -40,3 +40,7 @@
 ### file json && yml in Format Json
 
 [![ascciicast](https://asciinema.org/a/vYFGbViVOs176FR05xXyvcklM.svg)](  https://asciinema.org/a/vYFGbViVOs176FR05xXyvcklM)
+
+### Tests
+
+[![ascciicast](https://asciinema.org/a/PSZqE7Pqikg8Cedw5yijQSjsy.svg)](https://asciinema.org/a/PSZqE7Pqikg8Cedw5yijQSjsy)
