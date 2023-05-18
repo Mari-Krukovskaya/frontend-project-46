@@ -14,7 +14,7 @@ const stringify = (data, depth) => {
 
 const formatStylish = (tree) => {
   const iter = (node, depth = 1) => node
-   .map((data) => {
+    .map((data) => {
       switch (data.type) {
         case 'unchanged':
           return `${getIndent(depth)}  ${data.key}: ${stringify(data.value, depth)}`;
