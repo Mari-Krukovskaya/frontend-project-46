@@ -1,9 +1,6 @@
 import _ from 'lodash';
 
-// const replacer = ' ';
-// const spacesCount = 4;
 const getIndent = (depth, replacer = ' ', spacesCount = 4) => replacer.repeat(spacesCount * depth - 2);
-// const getCloseBracket = (depth) => replacer.repeat(depth  * spacesCount - spacesCount);
 
 const stringify = (data, depth) => {
   if (!_.isObject(data)) {
@@ -16,8 +13,8 @@ const stringify = (data, depth) => {
 };
 
 const formatStylish = (tree) => {
-  const iter = (node, depth = 1) => {
-    const result = node.map((data) => {
+  const iter = (node, depth = 1) => node
+   .map((data) => {
       switch (data.type) {
         case 'unchanged':
           return `${getIndent(depth)}  ${data.key}: ${stringify(data.value, depth)}`;
@@ -33,10 +30,7 @@ const formatStylish = (tree) => {
         default:
           return `${getIndent(depth)}  ${data.key}: {\n${iter(data.children, depth + 1)}\n${getIndent(depth)}  }`;
       }
-    });
-    return result.join('\n');
-  };
-
+    }).join('\n');
   return `{\n${iter(tree)}\n}`;
 };
 
