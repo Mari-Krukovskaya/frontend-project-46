@@ -4,7 +4,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2839508087676ed3a3f7/test_coverage)](https://codeclimate.com/github/Mari-Krukovskaya/frontend-project-46/test_coverage)
 
 ### Project description:
-Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
+Difference Calculator is a program that determines the difference between two data structures. This is a popular task, for which there are many online services, for example http://www.jsondiff.com /. A similar mechanism is used when outputting tests or when automatically tracking changes in configuration files.
 
 ### Requirements
  Node.js v13.2.0
