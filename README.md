@@ -10,13 +10,21 @@
  Node.js v13.2.0
 
  ### Install:
-```
-- клонировать репозиторий 
 
-- установить npm (команда make install из корневого каталога)
-
-- cоздать локальную связь(команда npm link, возможно запустить через sudo)
+ ### клонировать репозиторий 
 ```
+git clone
+```
+### установить пакеты
+```
+make install
+```
+
+ ### cоздать локальную связь
+ ```
+ npm link
+ ```
+
 ### Usage
 
 [![ascciicast](https://asciinema.org/a/9XsuXfBWIZFW8z1gavywii5ps.svg)](https://asciinema.org/a/9XsuXfBWIZFW8z1gavywii5ps)
