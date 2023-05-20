@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import fs from 'fs';
 import path from 'path';
 import parseData from './parsers.js';
 import compare from './genDiff.js';
@@ -8,7 +8,7 @@ const getFormat = (filepath) => path.extname(filepath).slice(1);
 
 const getAbsolutePath = (filepath) => path.resolve(process.cwd(), filepath);
 
-const readFile = (filepath) => readFileSync(getAbsolutePath(filepath, 'utf-8'));
+const readFile = (filepath) => fs.readFileSync(getAbsolutePath(filepath, 'utf-8'));
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const data1 = readFile(filepath1);

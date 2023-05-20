@@ -8,29 +8,28 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-const tree = [
-  ['file1.json', 'file2.json', 'expectedStylish_result.txt'],
-  ['file1.json', 'file2.json', 'expectedStylish_result.txt', 'stylish'],
-  ['file1.yml', 'file2.yml', 'expectedStylish_result.txt', 'stylish'],
-  ['file1.json', 'file2.json', 'expectedPlain_result.txt', 'plain'],
-  ['file1.json', 'file2.json', 'expectedJson_result.txt', 'json'],
-];
+const expectedStylish = fs.readFileSync(getFixturePath('expectedStylish_result.txt'), 'utf-8');
+const expectedPlain = fs.readFileSync(getFixturePath('expectedPlain_result.txt'), 'utf-8');
+const expectedJson = fs.readFileSync(getFixturePath('expectedJson_result.txt'), 'utf-8');
 
-describe.each(tree)('compare check', (file1, file2, expected, format) => {
-  const data1 = getFixturePath(file1);
-  const data2 = getFixturePath(file2);
-  const actual = genDiff(data1, data2, format);
-  const expetedResult = readFile(expected);
-  test(` test ${file1} && ${file2} with ${format} format to ${expected}`, () => {
-    expect(actual).toEqual(expetedResult);
+const tests = ['json', 'yml'];
+
+describe('Gendiff', () => {
+  test.each([
+    tests,
+  ])('Should be work with %s format', (format) => {
+    const filepath1 = getFixturePath(`file1.${format}`);
+    const filepath2 = getFixturePath(`file2.${format}`);
+    expect(genDiff(filepath1, filepath2)).toEqual(expectedStylish);
+    expect(genDiff(filepath1, filepath2, 'stylish')).toEqual(expectedStylish);
+    expect(genDiff(filepath1, filepath2, 'plain')).toEqual(expectedPlain);
+    expect(genDiff(filepath1, filepath2, 'json')).toEqual(expectedJson);
   });
-});
-
-test('empty File', () => {
-  const emptyFile = () => {
-    throw new TypeError();
-  };
-  expect(emptyFile).toThrow(TypeError);
+  test('Should be empty File', () => {
+    const emptyFile = () => {
+      throw new TypeError();
+    };
+    expect(emptyFile).toThrow(TypeError);
+  });
 });
