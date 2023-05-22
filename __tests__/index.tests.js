@@ -13,7 +13,7 @@ const expectedStylish = fs.readFileSync(getFixturePath('expectedStylish_result.t
 const expectedPlain = fs.readFileSync(getFixturePath('expectedPlain_result.txt'), 'utf-8');
 const expectedJson = fs.readFileSync(getFixturePath('expectedJson_result.txt'), 'utf-8');
 
-const tests = ['json', 'yml'];
+const tests = ['json', 'yaml', 'yml'];
 
 describe('Gendiff', () => {
   test.each([

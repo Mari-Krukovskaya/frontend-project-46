@@ -2,8 +2,8 @@ import yaml from 'js-yaml';
 
 const parseData = (content, format) => {
   switch (format) {
-    case 'yml':
     case 'yaml':
+    case 'yml':
       return yaml.load(content);
     case 'json':
     default:
