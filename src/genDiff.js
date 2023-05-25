@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const compare = (data1, data2) => {
+const diffGenerator = (data1, data2) => {
   const sortedKeys = _.sortBy(_.union(_.keys(data1), _.keys(data2)));
   return sortedKeys.map((key) => {
     if (!_.has(data1, key)) {
@@ -10,7 +10,7 @@ const compare = (data1, data2) => {
       return { key, value: data1[key], type: 'deleted' };
     }
     if (_.isPlainObject(data1[key]) && _.isPlainObject(data2[key])) {
-      const children = compare(data1[key], data2[key]);
+      const children = diffGenerator(data1[key], data2[key]);
       return { key, children, type: 'nested' };
     }
     if (_.isEqual(data1[key], data2[key])) {
@@ -22,4 +22,4 @@ const compare = (data1, data2) => {
   });
 };
 
-export default compare;
+export default diffGenerator;
