@@ -24,8 +24,9 @@ const formatPlain = (tree) => {
         case 'nested':
           return `${iter(data.children, `${path}`)}`;
         case 'unchanged':
-        default:
           return [];
+        default:
+          throw new Error(`Uknown data.type: '${data.type}'!`);
       }
     }).join('\n');
   return iter(tree);

@@ -5,9 +5,10 @@ const parseData = (data, format) => {
     case 'json':
       return JSON.parse(data);
     case 'yaml':
+    case 'yml':
       return yaml.load(data);
     default:
-      throw new Error('Uknown format!');
+     throw new Error('Uknown format!');
   }
 };
 export default parseData;
