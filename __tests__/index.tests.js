@@ -20,10 +20,10 @@ describe('Gendiff', () => {
   test.each(tests)('Should be work with %s format', (format) => {
     const filepath1 = getFixturePath(`file1.${format}`);
     const filepath2 = getFixturePath(`file2.${format}`);
-    expect(genDiff(filepath1, filepath2)).toEqual(expectedStylish);
     expect(genDiff(filepath1, filepath2, 'stylish')).toEqual(expectedStylish);
     expect(genDiff(filepath1, filepath2, 'plain')).toEqual(expectedPlain);
     expect(genDiff(filepath1, filepath2, 'json')).toEqual(expectedJson);
+    expect(genDiff(filepath1, filepath2)).toEqual(expectedStylish);
   });
   test('Should be empty File', () => {
     const emptyFile = () => {

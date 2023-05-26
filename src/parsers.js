@@ -4,11 +4,11 @@ const parseData = (data, format) => {
   switch (format) {
     case 'json':
       return JSON.parse(data);
-    case 'yaml':
     case 'yml':
-      return yaml.load(data);
+    case 'yaml':
     default:
-      throw new Error(`Uknown format: '${format}!'`);
+      return yaml.load(data);
+      // throw new Error(`Uknown format: '${format}!'`);
   }
 };
 export default parseData;
