@@ -29,7 +29,7 @@ const formatStylish = (tree) => {
         case 'nested':
           return `${getIndent(depth)}  ${data.key}: {\n${iter(data.children, depth + 1)}\n${getIndent(depth)}  }`;
         default:
-        throw new Error(`Uknown data.type: '${data.type}'!`);
+          throw new Error(`Uknown data.type: '${data.type}'!`);
       }
     }).join('\n');
   return `{\n${iter(tree)}\n}`;
