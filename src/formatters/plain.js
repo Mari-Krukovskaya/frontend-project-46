@@ -25,7 +25,6 @@ const formatPlain = (tree) => {
           return `${iter(data.children, `${path}`)}`;
         case 'unchanged':
         default:
-          // throw new Error(`Uknown data.type: '${data.type}'!`);
           return [];
       }
     }).join('\n');

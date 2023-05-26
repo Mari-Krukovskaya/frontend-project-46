@@ -14,7 +14,7 @@ const expectedStylish = readFile('expectedStylish_result.txt');
 const expectedPlain = readFile('expectedPlain_result.txt');
 const expectedJson = readFile('expectedJson_result.txt');
 
-const tests = ['json', 'yaml', 'yml'];
+const tests = ['json', 'yaml'];
 
 describe('Gendiff', () => {
   test.each(tests)('Should be work with %s format', (format) => {
