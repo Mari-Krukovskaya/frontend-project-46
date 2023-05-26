@@ -16,19 +16,20 @@ const formatStylish = (tree) => {
   const iter = (node, depth = 1) => node
     .map((data) => {
       switch (data.type) {
+        case 'added':
+          return `${getIndent(depth)}+ ${data.key}: ${stringify(data.value, depth)}`;
+        case 'deleted':
+          return `${getIndent(depth)}- ${data.key}: ${stringify(data.value, depth)}`;
         case 'unchanged':
           return `${getIndent(depth)}  ${data.key}: ${stringify(data.value, depth)}`;
         case 'changed':
           return [
             `${getIndent(depth)}- ${data.key}: ${stringify(data.value1, depth)}\n${getIndent(depth)}+ ${data.key}: ${stringify(data.value2, depth)}`,
           ];
-        case 'added':
-          return `${getIndent(depth)}+ ${data.key}: ${stringify(data.value, depth)}`;
-        case 'deleted':
-          return `${getIndent(depth)}- ${data.key}: ${stringify(data.value, depth)}`;
         case 'nested':
-        default:
           return `${getIndent(depth)}  ${data.key}: {\n${iter(data.children, depth + 1)}\n${getIndent(depth)}  }`;
+        default:
+          throw new Error(`Uknown data.type: '${data.type}'!`);
       }
     }).join('\n');
   return `{\n${iter(tree)}\n}`;

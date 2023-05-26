@@ -8,8 +8,9 @@ const getFormatters = (data, format) => {
     case 'plain':
       return formatPlain(data);
     case 'json':
-    default:
       return JSON.stringify(data, null, 2);
+    default:
+      throw new Error(`Uknown format:' ${format}'!`);
   }
 };
 
