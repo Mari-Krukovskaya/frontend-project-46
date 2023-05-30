@@ -28,9 +28,8 @@ const iter = (node, depth = 1) => node.map((data) => {
       const children = iter(data.children, depth + 1);
       return `${getIndent(depth)}  ${data.key}: {\n${children.join('\n')}\n${getIndent(depth)}  }`;
     }
-    default: 
+    default:
       throw new Error(`Uknown data.type: '${data.type}'!`);
-    
   }
 });
 const formatStylish = (tree, depth = 1) => `{\n${iter(tree, depth).join('\n')}\n}`;

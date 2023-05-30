@@ -24,7 +24,7 @@ const formatPlain = (tree, path) => tree.flatMap((data) => {
       return `${formatPlain(data.children, line)}`;
     case 'unchanged':
       return [];
-    default: 
+    default:
       throw new Error(`Uknown data.type: '${data.type}'!`);
   }
 }).join('\n');
