@@ -11,8 +11,8 @@ const readFile = (filepath) => {
 
 const getData = (filepath) => {
   const data = readFile(filepath);
-  const extension = path.extname(filepath).slice(1);
-  return parseData(data, extension);
+  const format = path.extname(filepath).slice(1);
+  return parseData(data, format);
 };
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
